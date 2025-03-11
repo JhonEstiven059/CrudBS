@@ -1,0 +1,50 @@
+﻿@model CrudBS.Models.Hospedaje
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Hospedaje</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CedulaHospedaje" class="control-label"></label>
+                <select asp-for="CedulaHospedaje" class ="form-control" asp-items="ViewBag.CedulaHospedaje"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaInicial" class="control-label"></label>
+                <input asp-for="FechaInicial" class="form-control" />
+                <span asp-validation-for="FechaInicial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaFinal" class="control-label"></label>
+                <input asp-for="FechaFinal" class="form-control" />
+                <span asp-validation-for="FechaFinal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CodigoReservaHospedaje" class="control-label"></label>
+                <select asp-for="CodigoReservaHospedaje" class ="form-control" asp-items="ViewBag.CodigoReservaHospedaje"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumeroHabitacionHospedaje" class="control-label"></label>
+                <select asp-for="NumeroHabitacionHospedaje" class ="form-control" asp-items="ViewBag.NumeroHabitacionHospedaje"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

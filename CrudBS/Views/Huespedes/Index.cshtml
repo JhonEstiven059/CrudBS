@@ -1,0 +1,77 @@
+﻿@model IEnumerable<CrudBS.Models.Huespede>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaEntrada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaSalida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodigoReservaHuespedNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdPaquetesTuristicosNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdServiciosHuespedNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroHabitacionHuespedNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaEntrada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaSalida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodigoReservaHuespedNavigation.CodigoReserva)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdPaquetesTuristicosNavigation.IdPaquete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdServiciosHuespedNavigation.IdServicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroHabitacionHuespedNavigation.NumeroHabitacion)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Cedula">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Cedula">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Cedula">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
