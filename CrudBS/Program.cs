@@ -1,5 +1,6 @@
 using CrudBS.Models;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,7 +11,15 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<CrudBsContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("conexion")));
 
+builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<CrudBsContext>(); // ASEGÚRATE DE QUE YA ESTÉ CONFIGURADO
+builder.Services.AddSession();
 var app = builder.Build();
+
+app.UseSession(); // USAR SESIONES
+app.UseRouting();
+app.UseAuthorization();
+app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

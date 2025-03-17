@@ -1,0 +1,51 @@
+﻿@model CrudBS.Models.LoginViewModel
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Estilo Iniciar Sesion.css">
+    <title>Iniciar Sesión</title>
+</head>
+<body>
+    <header>
+        <img src="~/imagenes/Imagen.jpg" height="500" asp-append-version="true" />
+    </header>
+
+
+    <div class="content-form">
+        <div class="Title-Content">
+            <h2>Iniciar Sesión</h2>
+        </div>
+
+        @if (ViewBag.ErrorMessage != null)
+        {
+            <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+        }
+
+        <form asp-action="Login" method="post">
+            <div class="form-group">
+                <label for="CorreoElectronico">Correo Electrónico</label>
+                <input type="text" class="form-control" asp-for="CorreoElectronico" placeholder="Ingresa tu correo electrónico" required />
+            </div>
+
+            <div class="form-group">
+                <label for="Contraseña">Contraseña</label>
+                <input type="password" class="form-control" asp-for="Contraseña" placeholder="Ingrese su contraseña" required />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+
+            <p class="OlvidarContra">
+                <a href="Prueba_olvidar_contraseña.html">¿Olvidaste tu contraseña?</a>
+            </p>
+            <p class="RegistroCuenta">
+                <a href="Prueba_Registro.html">¿No tienes cuenta? Regístrate</a>
+            </p>
+        </form>
+    </div>
+
+    <script src="Script Iniciar Sesion.js"></script>
+</body>
+</html>

@@ -27,6 +27,8 @@ public partial class PaquetesTuristico
 
     public int? IdServicios { get; set; }
 
+
+
     public virtual ICollection<Huespede> Huespedes { get; set; } = new List<Huespede>();
 
     public virtual Servicio? IdServiciosNavigation { get; set; }
